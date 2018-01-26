@@ -11,7 +11,7 @@ def discover_internal_links(base_url, user_agent, response_object, robots_rules)
             if urlparse(url).netloc == urlparse(base_url).netloc:
                 if robots_rules and robots_rules.is_allowed(user_agent, url):
                     links.append(url)
-                else:
+                elif not robots_rules:
                     links.append(url)
         return links
     except Exception as e:

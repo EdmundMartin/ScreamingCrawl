@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import re
 from collections import OrderedDict
 
+
 class SeoParser:
 
     def __init__(self, response_object):
