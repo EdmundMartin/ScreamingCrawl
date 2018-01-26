@@ -111,6 +111,8 @@ class Crawl:
             return
 
     def run_crawler(self):
+        if self.data_format == "sql":
+            db.create_tables([ResultDB])
         while True:
             try:
                 url = self.urls_to_crawl.get(timeout=self.timeout)
@@ -128,6 +130,5 @@ class Crawl:
 
 
 if __name__ == '__main__':
-    db.create_tables([ResultDB])
     c = Crawl('http://edmundmartin.com')
     c.run_crawler()
